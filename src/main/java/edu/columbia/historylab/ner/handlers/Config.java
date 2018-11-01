@@ -76,6 +76,11 @@ public class Config {
 		return path;
 	}
 	
+	private void mkdirsForDirectoryProperty(String path, Properties properties) {
+		path = properties.getProperty(path);
+		new File(path).mkdirs();
+	}
+	
 	private Config(String configPath) {
 		try {			
 			Properties properties = new Properties();
@@ -86,6 +91,7 @@ public class Config {
 			gloveModelPath = getPathProperty(Constants.PARAMETER_GLOVE_MODEL_PATH, properties); 
 			resourcesPath = getPathProperty(Constants.PARAMETER_RESOURCES_PATH, properties);
 			documentPath = getPathProperty(Constants.PARAMETER_DOCUMENT_PATH, properties);
+			mkdirsForDirectoryProperty(Constants.PARAMETER_OUTPUT_PATH, properties);
 			outputPath = getPathProperty(Constants.PARAMETER_OUTPUT_PATH, properties);
 
 			databaseUrl = properties.getProperty(Constants.PARAMETER_DATABASE_URL);

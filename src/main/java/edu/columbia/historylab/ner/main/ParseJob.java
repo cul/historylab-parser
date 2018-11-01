@@ -1,7 +1,6 @@
 package edu.columbia.historylab.ner.main;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -45,13 +44,6 @@ public class ParseJob {
 		if(!hasText){
 			System.out.println("There is no text to process. Quitting!");
 			return;
-		}
-		
-		//Create directories if not existing
-		System.out.println("Checking output directories...");
-		File outputDirectory = new File(Config.getInstance().getOutputPath());
-		if(!outputDirectory.exists()){
-			outputDirectory.mkdir();
 		}
 
 		//Run NER and Wikification

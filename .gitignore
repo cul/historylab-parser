@@ -8,7 +8,7 @@ target/
 # Project ignores
 historylab-parser.log
 conf/hl.config
-./models/
+/models
 output/
 
 # Ignore editor temp files
